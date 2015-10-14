@@ -1,0 +1,10 @@
+{
+  "sources": [
+    "core",
+    "shop"
+  ],
+  "destination": "",
+  "temp": "",
+  "minify": true,
+  "sourcemaps": true
+}

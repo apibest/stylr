@@ -1,0 +1,12 @@
+
+
+.extendable {
+  color: white;
+}
+
+.main {
+  .test {
+    @extend .extendable;
+  }
+}
+
