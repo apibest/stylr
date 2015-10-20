@@ -1,9 +1,10 @@
 {
   "sources": [
-      "test",
-      "test-shop"
-    ],
+        "../src/styles",
+        "../../../../../shop/frontend/web/template/src/styles"
+      ],
   "destination": "../../../../../shop/frontend/web/template/dist/css/main.css",
+  "inputFile": "main.scss",
   "temp": ".tmp",
   "minify": true,
   "sourcemaps": true

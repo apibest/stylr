@@ -3,12 +3,14 @@
  */
 var merge = require('merge');
 var ncp = require('ncp').ncp;
+var q = require('q');
 
 var defaults = {
     sources: [],
     destFolder: '.tmp'
 };
 
+// Method initializing an instance by default and custom options
 var init = function (options) {
     // Merge default settings with custom ones
     if (typeof options === 'object') {
@@ -30,7 +32,7 @@ var copy = function(cb) {
                         return console.error(err);
                     } else {
                         if (typeof cb === 'function') {
-                            cb();
+                            cb(null);
                         }
                     }
                 });
@@ -38,8 +40,9 @@ var copy = function(cb) {
         });
     } else if (typeof this.options.sources === 'object') {
         console.log('Source is an object');
+        // TODO: write logic for the situation when sources is an object
     } else {
-        throw new Error('Source should be object or an array');
+        cb(new Error('Source should be object or an array'));
     }
 
 };

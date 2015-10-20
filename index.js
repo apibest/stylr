@@ -6,10 +6,13 @@ var rimraf = require('rimraf');
 
 var options;
 
-var compile = function () {
+var compile = function (err) {
+    if (err) {
+        return console.error(err);
+    }
     // Wait for file copying
     setTimeout(function () {
-        var test = compiler(options.temp + '/test.scss');
+        var test = compiler(options.temp + '/' + options.inputFile);
         test.compile({}, function (result) {
             // Write to destination file
             fs.writeFile(options.destination, result.css.toString(), function(err) {
@@ -48,6 +51,3 @@ fs.readFile('./.stylrrc', function (err, data) {
 });
 
 // Parsing config file (end)
-
-
-//console.log(Array.prototype.slice.call(process.argv, [2]));
