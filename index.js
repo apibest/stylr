@@ -1,10 +1,28 @@
 var compiler = require('./modules/CompileService');
 var cliReader = require('./modules/CLIReader');
+var copier = require('./modules/CopyService');
+var fs = require('fs');
 
-var test = compiler('./test/test.scss');
+var copy = copier({
+    sources: ['./test', './test-shop']
+});
 
-console.log(Array.prototype.slice.call(process.argv, [2]));
+var compile = function () {
+    // Wait for file copying
+    setTimeout(function () {
+        var test = compiler('.tmp/test.scss');
+        test.compile({a: 'test', file: './.tmp/test.scss'}, function (result) {
+            fs.writeFile('./.tmp/test.scss', result.css.toString(), function(err) {
+                if(err) {
+                    return console.log(err);
+                }
 
-test.compile({a: 'test', file: '../src/styles/main.scss'}, function (result) {
-    //console.log(result.css.toString());
-})
+                console.log("The file was saved!");
+            });
+        });
+    }, 1000);
+};
+
+copy.copy(compile);
+
+//console.log(Array.prototype.slice.call(process.argv, [2]));
