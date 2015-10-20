@@ -1,10 +1,10 @@
 {
   "sources": [
-    "core",
-    "shop"
-  ],
-  "destination": "",
-  "temp": "",
+      "test",
+      "test-shop"
+    ],
+  "destination": "../../../../../shop/frontend/web/template/dist/css/main.css",
+  "temp": ".tmp",
   "minify": true,
   "sourcemaps": true
 }
