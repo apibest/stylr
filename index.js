@@ -52,7 +52,7 @@ var compile = function (err) {
 
 // Parsing config file (begin)
 
-fs.readFile('./.stylrrc', function (err, data) {
+fs.readFile(process.cwd() + '/.stylrrc', function (err, data) {
     var json;
     if (err) {
         return console.error(err);

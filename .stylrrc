@@ -1,11 +1,11 @@
 {
   "sources": [
-        "../src/styles",
-        "../../../../../shop/frontend/web/template/src/styles"
+        "../core/frontend/web/template/src/styles",
+        "../shop/frontend/web/template/src/styles"
       ],
-  "destination": "../../../../../shop/frontend/web/template/dist/css/main.css",
+  "destination": "../shop/frontend/web/template/dist/css/main.css",
   "inputFile": "main.scss",
   "temp": ".tmp",
   "outputStyle": "compressed",
-  "sourceMap": "../../../../../shop/frontend/web/template/dist/css/maps/main.map"
+  "sourceMap": "../shop/frontend/web/template/dist/css/maps/main.map"
 }

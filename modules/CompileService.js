@@ -1,6 +1,7 @@
 // Definition of the Compiler class
 
-// Include NodeJS binding of libsass
+// Include NodeJS binding of libsas
+
 var merge = require('merge');
 var fs = require('fs');
 var CompileService;
@@ -49,7 +50,7 @@ getDriver = function () {
 
 setSource = function (path) {
     var isAccessible = false;
-    var source = __dirname + '/../' + path;
+    var source = process.cwd() + '/' + path;
 
     try {
         fs.accessSync(source, fs.R_OK);
