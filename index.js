@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var compiler = require('./modules/CompileService');
 var cliReader = require('./modules/CLIReader');
 var copier = require('./modules/CopyService');
@@ -13,7 +15,11 @@ var compile = function (err) {
     // Wait for file copying
     setTimeout(function () {
         var test = compiler(options.temp + '/' + options.inputFile);
-        test.compile({}, function (result) {
+        test.compile({
+            sourceMap: options.sourceMap,
+            outFile: options.destination,
+            outputStyle: 'compressed'
+        }, function (result) {
             // Write to destination file
             fs.writeFile(options.destination, result.css.toString(), function(err) {
                 if(err) {
@@ -29,6 +35,16 @@ var compile = function (err) {
                     }
                     console.log('Temporary directory has been deleted');
                 });
+            });
+
+            if (typeof options.sourceMap === 'string')
+            // Write sourcemaps to destination file
+            fs.writeFile(options.sourceMap, result.map.toString(), function (err) {
+                if (err) {
+                    return console.error(err);
+                }
+
+                console.log("The sourcemap has been saved!");
             });
         });
     }, 1000);

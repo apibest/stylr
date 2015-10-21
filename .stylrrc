@@ -6,6 +6,6 @@
   "destination": "../../../../../shop/frontend/web/template/dist/css/main.css",
   "inputFile": "main.scss",
   "temp": ".tmp",
-  "minify": true,
-  "sourcemaps": true
+  "outputStyle": "compressed",
+  "sourceMap": "../../../../../shop/frontend/web/template/dist/css/maps/main.map"
 }

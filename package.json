@@ -6,6 +6,10 @@
   "scripts": {
     "test": "mocha test/test.js"
   },
+  "bin": {
+    "stylr": "./index.js"
+  },
+  "preferGlobal": "true",
   "author": "Ilya Daynatovich",
   "license": "Apache-2.0",
   "dependencies": {

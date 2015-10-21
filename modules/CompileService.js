@@ -88,7 +88,6 @@ compile = function (params, cb) {
     }
 
     this.options = merge(this.options, params);
-
     this.driver.render(this.options, function(err, result) {
         if (err) {
             return console.log(err.message);
