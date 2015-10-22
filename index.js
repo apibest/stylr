@@ -6,6 +6,36 @@ var copier = require('./modules/CopyService');
 var fs = require('fs');
 var rimraf = require('rimraf');
 
+// Definition of the reading from CLI (begin)
+/*
+var separator = 0;
+
+for (var i = 0, length = process.argv.length; i < length; i += 1) {
+    if (process.argv[i] === __filename) {
+        separator = i;
+        break;
+    }
+}
+
+var parameters = process.argv.slice(separator+1);
+
+console.log(parameters);
+
+
+// Split parameters by parameter/value
+for (var i = 0, length = parameters.length; i < length; i += 1) {
+    var splitted = parameters[i].split('=');
+    if (splitted.length === 1) {
+        parameters[i] = splitted[0];
+    } else {
+        parameters[i] = splitted;
+    }
+
+}
+console.log(parameters);
+*/
+// Definition of the reading from CLI (end)
+
 var options;
 
 var compile = function (err) {

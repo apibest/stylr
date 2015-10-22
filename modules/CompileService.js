@@ -51,14 +51,10 @@ getDriver = function () {
 setSource = function (path) {
     var isAccessible = false;
     var source = process.cwd() + '/' + path;
-
-    try {
-        fs.accessSync(source, fs.R_OK);
+    if (fs.lstatSync(source).isFile()) {
         this.source = source;
         return true;
-    } catch (err) {
-        console.log(err);
-        console.log();
+    } else {
         console.log('There is no such file or it\'s not accessible!');
         return false;
     }
